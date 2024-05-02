@@ -7,6 +7,14 @@ vmStore=$vmRoot/virtual-machines
 vmISO=rhel-9.4-x86_64-dvd.iso
 vmISOlocation=$vmRoot/iso/$vmISO
 
+# Check if directory exists using test command with -d flag
+if ! test -d "$vmStore"; then
+  mkdir -p "$vmStore"
+  echo "Directory '$vmStore' created successfully."
+else
+  echo "Directory '$vmStore' already exists."
+fi
+
 echo 'Creating directories'
 mkdir -vp $vmStore/$vmName
 cd $vmStore/$vmName
