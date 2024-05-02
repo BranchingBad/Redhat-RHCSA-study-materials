@@ -2,7 +2,7 @@
 
 vmName=RHEL9-workstation
 vmStore=/home/$USER/virtual-machines
-vmISO=/home/$USER/iso/rhel-9.2-x86_64-dvd.iso
+vmISO=/home/$USER/iso/rhel-9.4-x86_64-dvd.iso
 
 echo 'Creating directories'
 mkdir -vp $vmStore/$vmName
