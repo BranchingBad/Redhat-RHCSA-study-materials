@@ -53,7 +53,7 @@ virt-install --name $vmName \
 --network bridge=virbr0,model=virtio \
 --os-variant=rhel9.4 \
 --graphics spice \
---location=$vmISO \
+--location=$vmISOlocation \
 --check path_in_use=off \
 --initrd-inject '/home/'$USER'/git-projects/rhcsa-study/kickstart/ksClient.cfg' \
 --extra-args 'inst.ks=file:/ksClient.cfg'
