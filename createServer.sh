@@ -1,8 +1,11 @@
 #!/bin/bash
 
 vmName=rhel9-server
-vmStore=/home/$USER/virtual-machines
-vmISO=/home/$USER/iso/rhel-9.4-x86_64-dvd.iso
+vmCreateDate=$(date +"%Y-%m-%d %H:%M:%S")
+vmRoot=/home/$USER
+vmStore=$vmRoot/virtual-machines
+vmISO=rhel-9.4-x86_64-dvd.iso
+vmISOlocation=$vmRoot/iso/$vmISO
 
 echo 'Creating directories'
 mkdir -vp $vmStore/$vmName
@@ -12,9 +15,20 @@ cd $vmStore/$vmName
 echo 'Creating meta-data file'
 touch meta-data
 
-cat <<EOF > meta-data
+cat <<EOF > meta-data   
 instance-id: $vmName
 local-hostname: $vmName
+create-date: $vmCreateDate
+kick-start: ksSrv.cfg
+iso: $vmISO
+vm-cpu: 2
+vm-memory: 4096
+vm-network: bridge
+vm-image-file-format: qcow2
+vm-image-file[0]-name: $vmName.qcow2
+vm-image-file[0]-size: 30G
+vm-image-file[1]-name: $vmName.spare.qcow2
+vm-image-file[1]-size: 10G
 EOF
 
 #Create storage pool
@@ -26,10 +40,9 @@ echo 'Create disk for O/S'
 export LIBGUESTFS_BACKEND=direct
 qemu-img create -f qcow2 -o preallocation=metadata $vmName.qcow2 30G
 
-#Spare HD for VG/LVM practice
+#Spare vm for VG/LVM practice
 echo 'Create disk for practice'
 qemu-img create -f qcow2 -o preallocation=metadata $vmName.spare.qcow2 10G
-
 
 #Create virtual machine
 echo 'Create new virtual machine'
@@ -40,6 +53,6 @@ virt-install --name $vmName \
 --network bridge=virbr0,model=virtio \
 --os-variant=rhel9.4 \
 --graphics spice \
---location=$vmISO \
+--location=$vmISOlocation \
 --initrd-inject '/home/'$USER'/git-projects/rhcsa-study/kickstart/ksSrv.cfg' \
 --extra-args 'inst.ks=file:/ksSrv.cfg'

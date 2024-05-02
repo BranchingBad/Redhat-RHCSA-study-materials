@@ -1,8 +1,19 @@
 #!/bin/bash
 
-vmName=RHEL9-workstation
-vmStore=/home/$USER/virtual-machines
-vmISO=/home/$USER/iso/rhel-9.4-x86_64-dvd.iso
+vmName=rhel9-workstation
+vmCreateDate=$(date +"%Y-%m-%d %H:%M:%S")
+vmRoot=/home/$USER
+vmStore=$vmRoot/virtual-machines
+vmISO=rhel-9.4-x86_64-dvd.iso
+vmISOlocation=$vmRoot/iso/$vmISO
+
+# Check if directory exists using test command with -d flag
+if ! test -d "$vmStore"; then
+  mkdir -p "$vmStore"
+  echo "Directory '$vmStore' created successfully."
+else
+  echo "Directory '$vmStore' already exists."
+fi
 
 echo 'Creating directories'
 mkdir -vp $vmStore/$vmName
@@ -12,9 +23,17 @@ cd $vmStore/$vmName
 echo 'Creating meta-data file'
 touch meta-data
 
-cat <<EOF > meta-data
+cat <<EOF > meta-data   
 instance-id: $vmName
 local-hostname: $vmName
+create-date: $vmCreateDate
+kick-start: ksSrv.cfg
+vm-cpu: 2
+vm-memory: 4096
+vm-network: bridge
+vm-image-file-format: qcow2
+vm-image-file[0]-name: $vmName.qcow2
+vm-image-file[0]-size: 30G
 EOF
 
 #Create storage pool
