@@ -1,7 +1,7 @@
 #!/bin/bash
 
-vmName=server
-vmStore=/home/steve/virtual-machines
+vmName=rhel9-server
+vmStore=/home/$USER/virtual-machines
 
 #Remove virtual machine
 echo 'Shuting down and removing virtual machine'

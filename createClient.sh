@@ -1,8 +1,8 @@
 #!/bin/bash
 
-vmName=client
-vmStore=/home/steve/virtual-machines
-vmISO=/home/steve/iso/rhel-9.2-x86_64-dvd.iso
+vmName=RHEL9-workstation
+vmStore=/home/$USER/virtual-machines
+vmISO=/home/$USER/iso/rhel-9.2-x86_64-dvd.iso
 
 echo 'Creating directories'
 mkdir -vp $vmStore/$vmName
@@ -32,9 +32,9 @@ virt-install --name $vmName \
 --memory 2048 --vcpus 2 --cpu host \
 --disk $vmName.qcow2,format=qcow2,bus=virtio \
 --network bridge=virbr0,model=virtio \
---os-variant=rhel9.2 \
+--os-variant=rhel9.4 \
 --graphics spice \
 --location=$vmISO \
 --check path_in_use=off \
---initrd-inject '/home/steve/gitProjects/rhcsa-study/kickstart/ksClient.cfg' \
+--initrd-inject '/home/'$USER'/git-projects/rhcsa-study/kickstart/ksClient.cfg' \
 --extra-args 'inst.ks=file:/ksClient.cfg'
