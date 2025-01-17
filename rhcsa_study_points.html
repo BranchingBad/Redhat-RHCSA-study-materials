@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RHCSA Exam Study Points</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding-left: 0; 
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+</style>
+</head>
+<body>
+
+<h1>RHCSA Exam Study Points</h1>
+
+<p>RHCSA exam candidates should be able to accomplish the tasks below without assistance. These have been grouped into several categories.</p>
+
+<h2>Understand and use essential tools</h2>
+<ul>
+  <li><input type="checkbox"> Access a shell prompt and issue commands with correct syntax</li>
+  <li><input type="checkbox"> Use input-output redirection (>, >>, |, 2>, etc.)</li>
+  <li><input type="checkbox"> Use grep and regular expressions to analyze text</li>
+  <li><input type="checkbox"> Access remote systems using SSH</li>
+  <li><input type="checkbox"> Log in and switch users in multiuser targets</li>
+  <li><input type="checkbox"> Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2</li>
+  <li><input type="checkbox"> Create and edit text files</li>
+  <li><input type="checkbox"> Create, delete, copy, and move files and directories</li>
+  <li><input type="checkbox"> Create hard and soft links</li>
+  <li><input type="checkbox"> List, set, and change standard ugo/rwx permissions</li>
+  <li><input type="checkbox"> Locate, read, and use system documentation including man, info, and files in /usr/share/doc</li>
+</ul>
+
+<h2>Create simple shell scripts</h2>
+<ul>
+  <li><input type="checkbox"> Conditionally execute code (use of: if, test, [], etc.)</li>
+  <li><input type="checkbox"> Use Looping constructs (for, etc.) to process file, command line input</li>
+  <li><input type="checkbox"> Process script inputs ($1, $2, etc.)</li>
+  <li><input type="checkbox"> Processing output of shell commands within a script</li>
+</ul>
+
+<h2>Operate running systems</h2>
+<ul>
+  <li><input type="checkbox"> Boot, reboot, and shut down a system normally</li>
+  <li><input type="checkbox"> Boot systems into different targets manually</li>
+  <li><input type="checkbox"> Interrupt the boot process in order to gain access to a system</li>
+  <li><input type="checkbox"> Identify CPU/memory intensive processes and kill processes</li>
+  <li><input type="checkbox"> Adjust process scheduling</li>
+  <li><input type="checkbox"> Manage tuning profiles</li>
+  <li><input type="checkbox"> Locate and interpret system log files and journals</li>
+  <li><input type="checkbox"> Preserve system journals</li>
+  <li><input type="checkbox"> Start, stop, and check the status of network services</li>
+  <li><input type="checkbox"> Securely transfer files between systems</li>
+</ul>
+
+<h2>Configure local storage</h2>
+<ul>
+  <li><input type="checkbox"> List, create, delete partitions on MBR and GPT disks</li>
+  <li><input type="checkbox"> Create and remove physical volumes</li>
+  <li><input type="checkbox"> Assign physical volumes to volume groups</li>
+  <li><input type="checkbox"> Create and delete logical volumes</li>
+  <li><input type="checkbox"> Configure systems to mount file systems at boot by universally unique ID (UUID) or label</li>
+  <li><input type="checkbox"> Add new partitions and logical volumes, and swap to a system non-destructively</li>
+</ul>
+
+<h2>Create and configure file systems</h2>
+<ul>
+  <li><input type="checkbox"> Create, mount, unmount, and use vfat, ext4, and xfs file systems</li>
+  <li><input type="checkbox"> Mount and unmount network file systems using NFS</li>
+  <li><input type="checkbox"> Configure autofs</li>
+  <li><input type="checkbox"> Extend existing logical volumes</li>
+  <li><input type="checkbox"> Create and configure set-GID directories for collaboration</li>
+  <li><input type="checkbox"> Diagnose and correct file permission problems</li>
+</ul>
+
+<h2>Deploy, configure, and maintain systems</h2>
+<ul>
+  <li><input type="checkbox"> Schedule tasks using at and cron</li>
+  <li><input type="checkbox"> Start and stop services and configure services to start automatically at boot</li>
+  <li><input type="checkbox"> Configure systems to boot into a specific target automatically</li>
+  <li><input type="checkbox"> Configure time service clients</li>
+  <li><input type="checkbox"> Install and update software packages from Red Hat Network, a remote repository, or from the local file system</li>
+  <li><input type="checkbox"> Modify the system bootloader</li>
+</ul>
+
+<h2>Manage basic networking</h2>
+<ul>
+  <li><input type="checkbox"> Configure IPv4 and IPv6 addresses</li>
+  <li><input type="checkbox"> Configure hostname resolution</li>
+  <li><input type="checkbox"> Configure network services to start automatically at boot</li>
+  <li><input type="checkbox"> Restrict network access using firewall-cmd/firewall</li>
+</ul>
+
+<h2>Manage users and groups</h2>
+<ul>
+  <li><input type="checkbox"> Create, delete, and modify local user accounts</li>
+  <li><input type="checkbox"> Change passwords and adjust password aging for local user accounts</li>
+  <li><input type="checkbox"> Create, delete, and modify local groups and group memberships</li>
+  <li><input type="checkbox"> Configure superuser access</li>
+</ul>
+
+<h2>Manage security</h2>
+<ul>
+  <li><input type="checkbox"> Configure firewall settings using firewall-cmd/firewalld</li>
+  <li><input type="checkbox"> Manage default file permissions</li>
+  <li><input type="checkbox"> Configure key-based authentication for SSH</li>
+  <li><input type="checkbox"> Set enforcing and permissive modes for SELinux</li>
+  <li><input type="checkbox"> List and identify SELinux file and process context</li>
+  <li><input type="checkbox"> Restore default file contexts</li>
+  <li><input type="checkbox"> Manage SELinux port labels</li>
+  <li><input type="checkbox"> Use boolean settings to modify system SELinux settings</li>
+  <li><input type="checkbox"> Diagnose and address routine SELinux policy violations</li>
+</ul>
+
+<h2>Manage containers</h2>
+<ul>
+  <li><input type="checkbox"> Find and retrieve container images from a remote registry</li>
+  <li><input type="checkbox"> Inspect container images</li>
+  <li><input type="checkbox"> Perform container management using commands such as podman and skopeo</li>
+  <li><input type="checkbox"> Perform basic container management such as running, starting, stopping, and listing running containers</li>
+  <li><input type="checkbox"> Run a service inside a container</li>
+  <li><input type="checkbox"> Configure a container to start automatically as a systemd service</li>
+  <li><input type="checkbox"> Attach persistent storage to a container</li>
+</ul>
+
+<p>As with all Red Hat performance-based exams, configurations must persist after reboot without intervention.</p>
+
+</body>
+</html>
