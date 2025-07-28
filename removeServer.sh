@@ -1,6 +1,6 @@
 #!/bin/bash
 
-vmName=rhel9-server
+vmName=rhel10-server
 vmStore=/home/$USER/virtual-machines
 
 #Remove virtual machine

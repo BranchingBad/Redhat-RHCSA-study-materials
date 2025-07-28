@@ -1,10 +1,10 @@
 #!/bin/bash
 
-vmName=rhel9-workstation
+vmName=rhel10-workstation
 vmCreateDate=$(date +"%Y-%m-%d %H:%M:%S")
 vmRoot=/home/$USER
 vmStore=$vmRoot/virtual-machines
-vmISO=rhel-9.4-x86_64-dvd.iso
+vmISO=rhel-10.0-x86_64-dvd.iso
 vmISOlocation=$vmRoot/iso/$vmISO
 
 # Check if directory exists using test command with -d flag
@@ -51,9 +51,9 @@ virt-install --name $vmName \
 --memory 2048 --vcpus 2 --cpu host \
 --disk $vmName.qcow2,format=qcow2,bus=virtio \
 --network bridge=virbr0,model=virtio \
---os-variant=rhel9.4 \
+--os-variant=rhel10.0 \
 --graphics spice \
 --location=$vmISOlocation \
 --check path_in_use=off \
---initrd-inject '/home/'$USER'/git-projects/rhcsa-study/kickstart/ksClient.cfg' \
+--initrd-inject '/home/'$USER'/github/Redhat-RHCSA-study-materials/kickstart/ksClient.cfg' \
 --extra-args 'inst.ks=file:/ksClient.cfg'
